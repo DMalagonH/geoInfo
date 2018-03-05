@@ -11,7 +11,7 @@ var geoInfo = (function() {
 	 */
 	var getEndpoint = function(latitude, longitude) {
 		return "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&sensor=false&key=" + GoogleApiKey;
-	}
+	};
 
 	/**
 	 * Gets current location coords and information from Google Maps API
@@ -45,7 +45,7 @@ var geoInfo = (function() {
 				reject(error);
 			});
 		});
-	}
+	};
 
 	/**
 	 * Gets coords of current position
@@ -64,7 +64,7 @@ var geoInfo = (function() {
 				reject("Unsupported Geolocation");
 			}
 		});
-	}
+	};
 
 	/**
 	 * Fetches location data from Google Maps API
@@ -93,7 +93,7 @@ var geoInfo = (function() {
 			};
 			xhr.send();
 		});
-	}
+	};
 
 	/**
 	 * extracts location information from google response data
@@ -102,8 +102,8 @@ var geoInfo = (function() {
 	 * @return object extracted information                                                                                                     [description]
 	 */
 	var extractLocationData = function(googleGeoData) {
-		let found = false;
-		let geoData = {
+		var found = false;
+		var geoData = {
 			city:			null,
 			neighborhood:	null,
 			sublocality:    null,
@@ -145,7 +145,7 @@ var geoInfo = (function() {
 		}
 
 		return geoData;
-	}
+	};
 
 	/**
 	 * Checks if searched location atributes were found
@@ -154,16 +154,16 @@ var geoInfo = (function() {
 	 * @return boolean
 	 */
 	var checkFound = function(geoData) {
-		for (let key in geoData) {
+		for (var key in geoData) {
 			if (geoData[key] === null) {
 				return false;
 			}
 		}
 		return true;
-	}
-
-	return {
-		getInfo: getGeoInfo,
-		getCurrentPosition: getCurrentPosition
 	};
-}());
+
+	// return {
+	// 	getInfo: getGeoInfo,
+	// 	getCurrentPosition: getCurrentPosition
+	// };
+})();
