@@ -1,6 +1,6 @@
 var geoInfo = (function() {
 
-	const GoogleApiKey = "";
+	var GoogleApiKey = null;
 
 	/**
 	 * Returns Google Maps API endpoint with parameters
@@ -18,7 +18,8 @@ var geoInfo = (function() {
 	 *
 	 * @return Promise (resolve returns an object with coords and info about location)
 	 */
-	var getGeoInfo = function() {
+	var getGeoInfo = function(gKey) {
+		GoogleApiKey = gKey;
 		var latitude, longitude;
 
 		return new Promise(function(resolve, reject) {
@@ -83,10 +84,10 @@ var geoInfo = (function() {
 						if (response.status == "OK") {
 							resolve(response.results);
 						} else {
-							reject("API response status" + response.status);
+							reject("API response: " + response.error_message);
 						}
 					} else {
-						reject("XHR response status " + xhr.status);
+						reject("XHR response status: " + xhr.status);
 					}
 				}
 			};
