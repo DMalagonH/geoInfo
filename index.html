@@ -8,7 +8,9 @@
 		<script>
 			var $info = document.getElementById("geoinfo");
 
-			var GoogleApiKey = ""; // your api key here. You can use Google API without key, but, it has a very short daily requests limit
+			// You can use Google API without key, but, it has a very short daily requests limit.
+			// Remember not to use the key variable api globally, I recommend use it into a scope as a private variable
+			var GoogleApiKey = ""; // your api key here.
 
 			geoInfo.getInfo(GoogleApiKey).then(function(info){
 				$info.innerHTML = JSON.stringify(info);
