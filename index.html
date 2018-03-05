@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Geoinfo</title>
+	</head>
+	<body>
+		<pre id='geoinfo'></pre>
+		<script src="geoinfo.js"></script>
+		<script>
+			var $info = document.getElementById("geoinfo");
+			geoInfo.getInfo().then(function(info){
+				$info.innerHTML = JSON.stringify(info);
+			})
+			.catch(function(error){
+				console.error(error);
+			});
+		</script>
+	</body>
+</html>
