@@ -162,8 +162,8 @@ var geoInfo = (function() {
 		return true;
 	};
 
-	// return {
-	// 	getInfo: getGeoInfo,
-	// 	getCurrentPosition: getCurrentPosition
-	// };
+	return {
+		getInfo: getGeoInfo,
+		getCurrentPosition: getCurrentPosition
+	};
 })();
